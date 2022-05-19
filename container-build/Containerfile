@@ -1,14 +1,14 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.0
+#FROM registry.access.redhat.com/ubi8/ubi:8.0
+FROM quay.io/redhattraining/httpd-parent
 
-MAINTAINER Red Hat Training <training@redhat.com>
+#MAINTAINER Red Hat Training <training@redhat.com>
 
 # DocumentRoot for Apache
 ENV DOCROOT=/var/www/html 
 
-
-RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
-      yum clean all --disableplugin=subscription-manager -y && \
-      echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
+#RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
+#      yum clean all --disableplugin=subscription-manager -y && \
+#      echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
 
 # corrected file for the issue
 RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httd.conf
