@@ -11,7 +11,7 @@ ENV DOCROOT=/var/www/html
 #      echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
 
 # corrected file for the issue
-RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httd.conf
+RUN sed -i "s/Listen 80/Listen 8080/g" /etc/httpd/conf/httpd.conf
 RUN sed -i "s/#ServerName www.example.com:80/ServerName 0.0.0.0:8080/g" /etc/httpd/conf/httd.conf
 
 # correct the dir permission
